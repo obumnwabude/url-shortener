@@ -12,3 +12,15 @@ main {
 [links] {
   margin-top: 32px;
 }
+
+button[mat-fab] {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 20;
+
+  @media (min-width: 768px) {
+    bottom: 48px;
+    right: calc(((100vw - 768px) / 2) + 32px);
+  }
+}

@@ -1,29 +1,37 @@
-<form [formGroup]="linkForm" (ngSubmit)="saveLink($event)">
-  <mat-form-field [floatLabel]="'always'" short>
-    <mat-label>Shortened</mat-label>
-    <span bold>sho.rt/</span>
-    <input matInput [formControl]="shortCtrl" type="text" required />
-    <mat-error *ngIf="shortCtrl.invalid">{{
-      shortCtrl.hasError('pattern')
-        ? 'Only alphanumeric characters'
-        : 'Shortened is required.'
-    }}</mat-error>
-  </mat-form-field>
-
-  <mat-form-field [floatLabel]="'always'" long>
-    <mat-label>Full URL</mat-label>
-    <input matInput [formControl]="longCtrl" type="text" required />
-    <mat-error *ngIf="longCtrl.invalid">{{
-      longCtrl.hasError('pattern')
-        ? 'Start with https://'
-        : 'Full URL is required.'
-    }}</mat-error>
-  </mat-form-field>
-
-  <div submit-button-container>
-    <button mat-raised-button color="primary">
-      <mat-icon>check</mat-icon>
-      <span>Create</span>
+<div container>
+  <div header>
+    <h2>New Link</h2>
+    <button mat-mini-fab (click)="cancel.emit()" color="primary">
+      <mat-icon>close</mat-icon>
     </button>
   </div>
-</form>
+  <form [formGroup]="linkForm" (ngSubmit)="saveLink($event)">
+    <mat-form-field [floatLabel]="'always'" short>
+      <mat-label>Shortened</mat-label>
+      <span bold>sho.rt/</span>
+      <input matInput [formControl]="shortCtrl" type="text" required />
+      <mat-error *ngIf="shortCtrl.invalid">{{
+        shortCtrl.hasError('pattern')
+          ? 'Only alphanumeric characters'
+          : 'Shortened is required.'
+      }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="'always'" long>
+      <mat-label>Full URL</mat-label>
+      <input matInput [formControl]="longCtrl" type="text" required />
+      <mat-error *ngIf="longCtrl.invalid">{{
+        longCtrl.hasError('pattern')
+          ? 'Start with https://'
+          : 'Full URL is required.'
+      }}</mat-error>
+    </mat-form-field>
+
+    <div submit-button-container>
+      <button mat-raised-button color="primary">
+        <mat-icon>check</mat-icon>
+        <span>Create</span>
+      </button>
+    </div>
+  </form>
+</div>

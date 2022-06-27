@@ -22,3 +22,18 @@ mat-form-field[long] {
     }
   }
 }
+
+[container] {
+  padding: 32px 16px;
+}
+
+[header] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+[header] button[mat-mini-fab] {
+  transform: scale(0.8);
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Link } from '../link';
@@ -22,6 +22,8 @@ export class LinksEditorComponent {
 
   linkForm = new FormGroup({ short: this.shortCtrl, long: this.longCtrl });
 
+  @Output() cancel = new EventEmitter();
+
   constructor(
     private linksService: LinksService,
     private snackBar: MatSnackBar
@@ -39,6 +41,7 @@ export class LinksEditorComponent {
       this.linksService.createLink(link);
       (event.target as HTMLFormElement).reset();
       this.linkForm.reset();
+      this.cancel.emit();
     }
   }
 }

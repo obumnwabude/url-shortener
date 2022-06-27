@@ -13,3 +13,7 @@ body {
 mat-form-field[short] .mat-form-field-infix {
   display: flex;
 }
+
+.mat-bottom-sheet-container {
+  border-radius: 24px 24px 0 0;
+}
